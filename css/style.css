@@ -4,3 +4,13 @@ main{
     /* height: 100vh; */
 }
 
+.cardDetalle{
+    border-radius: 3%;
+}
+.imgDetalle{
+    border-radius: 3%;
+}
+
+.colorCard{
+    background-color: transparent;
+}
