@@ -1,7 +1,12 @@
-main{
+.bgIndex{
     background-image: url(/img/bg.jpg);
     background-size: cover;
     /* height: 100vh; */
+}
+.bgDetalle{
+    background-image: url(/img/bgDetalles.jpg);
+    background-size: cover;
+    height: 100vh;
 }
 
 .cardDetalle{
