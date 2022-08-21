@@ -1,7 +1,7 @@
 .bgIndex{
     background-image: url(/img/bg.jpg);
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .bgDetalle{
     background-image: url(/img/bgDetalles.jpg);
