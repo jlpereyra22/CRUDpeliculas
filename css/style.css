@@ -6,12 +6,12 @@
 .bgDetalle{
     background-image: url(/img/bgDetalles.jpg);
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .bgAdmin{
     background-image: url(/img/bgAdmin.jpg);
     background-size: cover;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .cardDetalle{
     border-radius: 3%;
@@ -22,4 +22,10 @@
 
 .colorCard{
     background-color: transparent;
+}
+
+.truncarTexto {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
