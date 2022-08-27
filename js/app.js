@@ -1,4 +1,4 @@
-import{cantidadCaracteres} from "./helper.js"
+import{cantidadCaracteres,validDescription,validImagen,validGenero} from "./helper.js"
 
 
 
@@ -13,8 +13,12 @@ let genero = document.getElementById("genero");
 let formPelicula = document.getElementById("formPelicula");
 
 // events
-formPelicula.addEventListener("submit",crearPelicula)
-codigo.addEventListener("blur",()=>{cantidadCaracteres(codigo)})
+formPelicula.addEventListener("submit",crearPelicula);
+codigo.addEventListener("blur",()=>{cantidadCaracteres(codigo)});
+titulo.addEventListener("blur",()=>{cantidadCaracteres(titulo)});
+descripcion.addEventListener("blur",()=>{validDescription(descripcion)});
+imagen.addEventListener("blur",()=>{validImagen(imagen)});
+genero.addEventListener("blur",()=>{validGenero(genero)});
 
 function crearPelicula(e){
   e.preventDefault();
