@@ -41,7 +41,6 @@ genero.addEventListener("blur", () => {
 });
 cargaInicial();
 
-
 // Funciones
 
 function mostrarForm() {
@@ -66,10 +65,10 @@ function crearPelicula(e) {
   limpiarForm();
   crearFila(IngresarPelicula);
   Swal.fire(
-    'Pelicula creada',
-    'La pelicula fue creada correctamente',
-    'success'
-  )
+    "Pelicula creada",
+    "La pelicula fue creada correctamente",
+    "success"
+  );
   modalFormPeliculas.hide();
 }
 
@@ -105,24 +104,39 @@ function crearFila(pelicula) {
 </tr>`;
 }
 
-function cargaInicial(){
-  if(listaPeliculas.length > 0){
-    listaPeliculas.map((pelicula)=>{crearFila(pelicula)});
+function cargaInicial() {
+  if (listaPeliculas.length > 0) {
+    listaPeliculas.map((pelicula) => {
+      crearFila(pelicula);
+    });
   }
 }
 
+window.borrarpelicula = function (codigo) {
+  Swal.fire({
+    title: "Eliminar Pelicula",
+    text: "Si eliminas la pelicula no podras volver a recuperar",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Eliminar",
+    cancelButtonText:"Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let copiaListaPeliculas = listaPeliculas.filter((pelicula) => {
+        return pelicula.codigo != codigo;
+      });
+      console.log(copiaListaPeliculas);
+      listaPeliculas = copiaListaPeliculas;
+      guardarDatosSL();
+      actualizarTabla();
+      Swal.fire("Eliminada!", "Has eliminado con exito esta pelicula", "success");
+    }
+  });
+};
 
-window.borrarpelicula = function(codigo){
-  console.log(codigo);
-  let copiaListaPeliculas = listaPeliculas.filter((pelicula)=>{return pelicula.codigo != codigo});
-  console.log(copiaListaPeliculas);
-  listaPeliculas= copiaListaPeliculas;
-  guardarDatosSL();
-  actualizarTabla();
-
-}
-
-function actualizarTabla(){
+function actualizarTabla() {
   let tablaPelicula = document.querySelector("#tablaPelicula");
   tablaPelicula.innerHTML = "";
   cargaInicial();
