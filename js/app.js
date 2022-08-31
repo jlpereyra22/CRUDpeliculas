@@ -99,7 +99,7 @@ function crearFila(pelicula) {
     <i class="bi bi-pencil-square text-warning fs-1"></i>
   </button>
   <button class="btn">
-    <i class="bi bi-clipboard-x-fill text-danger fs-1"></i>
+    <i class="bi bi-clipboard-x-fill text-danger fs-1" onclick="borrarpelicula('${pelicula.codigo}')"></i>
   </button>
   </td>
 </tr>`;
@@ -109,4 +109,21 @@ function cargaInicial(){
   if(listaPeliculas.length > 0){
     listaPeliculas.map((pelicula)=>{crearFila(pelicula)});
   }
+}
+
+
+window.borrarpelicula = function(codigo){
+  console.log(codigo);
+  let copiaListaPeliculas = listaPeliculas.filter((pelicula)=>{return pelicula.codigo != codigo});
+  console.log(copiaListaPeliculas);
+  listaPeliculas= copiaListaPeliculas;
+  guardarDatosSL();
+  actualizarTabla();
+
+}
+
+function actualizarTabla(){
+  let tablaPelicula = document.querySelector("#tablaPelicula");
+  tablaPelicula.innerHTML = "";
+  cargaInicial();
 }
