@@ -18,6 +18,7 @@ let descripcion = document.getElementById("descripcion");
 let imagen = document.getElementById("imagen");
 let genero = document.getElementById("genero");
 let formPelicula = document.getElementById("formPelicula");
+let peliculaNueva = true; //true crear, false editar
 
 // events
 btnCrearPelicula.addEventListener("click", () => {
@@ -44,12 +45,21 @@ cargaInicial();
 // Funciones
 
 function mostrarForm() {
+  peliculaNueva = true
   modalFormPeliculas.show();
   codigo.value = uuidv4();
 }
 
 function crearPelicula(e) {
   e.preventDefault();
+  if(peliculaNueva === true){
+    generarPelicula();
+  }else{
+    actualizarPelicula();
+  }
+ 
+}
+function generarPelicula(){
   console.log("vamo a crea la pelicula");
   const IngresarPelicula = new prototypePelis(
     codigo.value,
@@ -95,7 +105,7 @@ function crearFila(pelicula) {
   <td>"${pelicula.genero}"</td>
   <td>
     <button class="btn">
-    <i class="bi bi-pencil-square text-warning fs-1"></i>
+    <i class="bi bi-pencil-square text-warning fs-1" onclick = "editarPelicula('${pelicula.codigo}')"></i>
   </button>
   <button class="btn">
     <i class="bi bi-clipboard-x-fill text-danger fs-1" onclick="borrarpelicula('${pelicula.codigo}')"></i>
@@ -121,7 +131,7 @@ window.borrarpelicula = function (codigo) {
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "Si, Eliminar",
-    cancelButtonText:"Cancelar"
+    cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
       let copiaListaPeliculas = listaPeliculas.filter((pelicula) => {
@@ -131,7 +141,11 @@ window.borrarpelicula = function (codigo) {
       listaPeliculas = copiaListaPeliculas;
       guardarDatosSL();
       actualizarTabla();
-      Swal.fire("Eliminada!", "Has eliminado con exito esta pelicula", "success");
+      Swal.fire(
+        "Eliminada!",
+        "Has eliminado con exito esta pelicula",
+        "success"
+      );
     }
   });
 };
@@ -140,4 +154,23 @@ function actualizarTabla() {
   let tablaPelicula = document.querySelector("#tablaPelicula");
   tablaPelicula.innerHTML = "";
   cargaInicial();
+}
+
+window.editarPelicula = function (fCodigo) {
+  peliculaNueva = false
+  modalFormPeliculas.show();
+  let peliBuscada = listaPeliculas.find(
+    (pelicula) => pelicula.codigo == fCodigo
+  );
+  codigo.value = peliBuscada.codigo;
+  titulo.value = peliBuscada.titulo;
+  descripcion.value = peliBuscada.descripcion;
+  imagen.value = peliBuscada.imagen;
+  genero.value = peliBuscada.genero;
+};
+
+
+function actualizarPelicula(){
+  console.log("vamo a actualiza lo form");
+  listaPeliculas[0].titulo = titulo.value;
 }
