@@ -172,5 +172,15 @@ window.editarPelicula = function (fCodigo) {
 
 function actualizarPelicula(){
   console.log("vamo a actualiza lo form");
-  listaPeliculas[0].titulo = titulo.value;
+  console.log(codigo.value);
+  let posicionPelicula = listaPeliculas.findIndex((pelicula)=>{ return pelicula.codigo === codigo.value});
+  console.log(posicionPelicula);
+  listaPeliculas[posicionPelicula].titulo = titulo.value;
+  listaPeliculas[posicionPelicula].descripcion = descripcion.value;
+  listaPeliculas[posicionPelicula].imagen = imagen.value;
+  listaPeliculas[posicionPelicula].genero = genero.value;
+
+  guardarDatosSL();
+  actualizarTabla();
+  modalFormPeliculas.hide();
 }
