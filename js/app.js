@@ -46,6 +46,7 @@ cargaInicial();
 
 function mostrarForm() {
   peliculaNueva = true
+  limpiarForm();
   modalFormPeliculas.show();
   codigo.value = uuidv4();
 }
@@ -183,4 +184,5 @@ function actualizarPelicula(){
   guardarDatosSL();
   actualizarTabla();
   modalFormPeliculas.hide();
+  limpiarForm();
 }
