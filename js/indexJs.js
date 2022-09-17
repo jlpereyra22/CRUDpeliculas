@@ -1,13 +1,14 @@
-let listaPeliculas = JSON.parse(localStorage.getItem("localStoragePeli"))|| [];
+let listaPeliculas = JSON.parse(localStorage.getItem("localStoragePeli")) || [];
 
 //dibujar columnas
 
-listaPeliculas.map((pelicula)=>{crearColumna(pelicula)})
+listaPeliculas.map((pelicula) => {
+  crearColumna(pelicula);
+});
 
-
-function crearColumna(pelicula){
-    let grilla = document.getElementById("cardPeliculas");
-    grilla.innerHTML += `
+function crearColumna(pelicula) {
+  let grilla = document.getElementById("cardPeliculas");
+  grilla.innerHTML += `
     <div
     class="card m-3 col-sm-12 col-md-6 col-lg-3"
     style="width: 18rem"
@@ -18,11 +19,18 @@ function crearColumna(pelicula){
         ${pelicula.titulo}
       </h4>
       <div class="d-grid gap-2">
-        <a href="/pages/detallesMacross.html" class="btn btn-primary"
-          >Detalle</a
+      <button class="btn btn-primary" onclick="detallePelicula('${pelicula.codigo}')">ver detalle</button>
+          
         >
       </div>
     </div>
   </div>
-    `
+    `;
+}
+
+
+function detallePelicula(codigo){
+    console.log(codigo);
+    console.log(window.location.origin + "/pages/detallespelis.html?codigo="+ codigo);
+    window.location.href = window.location.origin + "/pages/detallespelis.html?codigo="+ codigo;
 }
