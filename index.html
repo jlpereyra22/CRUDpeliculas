@@ -22,7 +22,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="index.html">
-           <h1>Peliculas</h1>
+            <h1>Peliculas</h1>
           </a>
           <button
             class="navbar-toggler"
@@ -43,7 +43,9 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pages/administrador.html">Administrador</a>
+                <a class="nav-link" href="/pages/administrador.html"
+                  >Administrador</a
+                >
               </li>
             </ul>
           </div>
@@ -51,91 +53,18 @@
       </nav>
     </header>
     <main class="bgIndex">
-      <section class="container text-center ">
+      <section class="container text-center">
         <article>
-      <h1 class="m-1 fs-1 fw-bold">Listas de Peliculas</h1>
-      <hr>
-    </article>
-    <article class ="row justify-content-center">
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/macross.jpg" class="card-img-top" alt="macross">
-        <div class="card-body">
-          <h4 class="card-title">The Super Dimension Fortress Macross: Do You Remember Love</h4>
-          <div class="d-grid gap-2 ">
-          <a href="/pages/detallesMacross.html" class="btn btn-primary">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/evangelion.jpg" class="card-img-top" alt="evangelion">
-        <div class="card-body">
-          <h4 class="card-title"> Evangelion: 1.0 You Are (Not) Alone</h4>
-          <div class="d-grid gap-2">
-          <a href="/pages/detallesEvangelion.html" class="btn btn-primary">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/Full-Metal-Panic-movie-new-key.jpg.opdownload" class="card-img-top" alt="full metal panic">
-        <div class="card-body">
-          <h4 class="card-title">Full Metal Panic: The Movie</h4>
-          <div class="d-grid gap-2">
-          <a href="#" class="btn btn-primary disabled" >Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/gundam iron-blooded orphans.jpg.opdownload" class="card-img-top" alt="gundam iron iron-blooded">
-        <div class="card-body">
-          <h4 class="card-title">Mobile Suit Gundam: Iron Blooded Orphans</h4>
-          <div class="d-grid gap-2">
-          <a href="#" class="btn btn-primary disabled">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/Lelouch_of_the_Rebellion (1).webp" class="card-img-top" alt="rebelion de lelouch">
-        <div class="card-body">
-          <h4 class="card-title">Lelouch Of The Rebellion</h4>
-          <div class="d-grid gap-2">
-          <a href="#" class="btn btn-primary disabled">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/mobile suit gundam.jpg" class="card-img-top" alt="gundam wing">
-        <div class="card-body">
-          <h4 class="card-title">Mobile Suit Gundam: Endless Waltz</h4>
-          <div class="d-grid gap-2">
-          <a href="/pages/DetallesGundamWing.html" class="btn btn-primary">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/Muv-Luv-Alternative-Anime-Poster.jpg" class="card-img-top" alt="muv luv">
-        <div class="card-body">
-          <h4 class="card-title">Muv-Luv Alternative</h4>
-          <div class="d-grid gap-2">
-          <a href="#" class="btn btn-primary disabled">Detalle</a>
-          </div>
-        </div>
-      </div>
-      <div class="card m-3 col-sm-12 col-md-6 col-lg-3 " style="width: 18rem;">
-        <img src="/img/scafolowne.jpg" class="card-img-top" alt="scaflowne">
-        <div class="card-body">
-          <h4 class="card-title">La Vision de Scaflowne</h4>
-          <div class="d-grid gap-2">
-          <a href="#" class="btn btn-primary disabled">Detalle</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    </section>
+          <h1 class="m-1 fs-1 fw-bold">Listas de Peliculas</h1>
+          <hr />
+        </article>
+        <article class="row justify-content-center" id="cardPeliculas">
+         
+        </article>
+      </section>
     </main>
     <footer class="bg-dark text-white text-center py-4">
-      
-        <p>&copy; Todos Los Derechos Reservados</p>
-      
+      <p>&copy; Todos Los Derechos Reservados</p>
     </footer>
     <!-- JavaScript Bundle with Popper -->
     <script
@@ -143,6 +72,9 @@
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/app.js"></script>
+   
+    <script src="/js/indexJs.js"></script>
   </body>
 </html>
+
+
